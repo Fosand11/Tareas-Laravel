@@ -57,3 +57,8 @@ Route::get('/delete', function () {
     $user->delete();
     return $user;
 });
+
+Route::get('/find_email', function (){
+    $user = User::where ('email', 'Diego@gmail.com')->first();
+    return $user;
+});
