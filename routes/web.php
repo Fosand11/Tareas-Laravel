@@ -17,27 +17,27 @@ use Illuminate\Support\Facades\Route;
 //Crea un usuario
 
 Route::get('/create', function () {
-    $users = User::create([
+    $user = User::create([
         'name' => 'Diego',
         'email' => 'Diego@gmail.com',
         'password' => 'password',
         'is_admin' => false
     ]);
-    return ($users);
+    return $user;
 });
 
 //Lista a todos los usuarios
 
 Route::get('/list', function () {
     $users = User::all();
-    return($users);
+    return $users;
 });
 
 //Muestra un usuario por ID
 
 Route::get('/show', function () {
-    $users = User::find(3);
-    return ($users);
+    $user = User::find(3);
+    return $user;
 });
 
 //Actualizar un usuario por ID
@@ -47,13 +47,13 @@ Route::get('/update', function () {
     $user->update([
         'name' => 'Marta'
     ]);
-    return 'aqui actualizas un usuario por ID';
+    return $user;
 });
 
 //Eliminar usuario por ID
 
 Route::get('/delete', function () {
     $user = User::find(6);
-    $user->delete([]);
-    return 'aqui eliminas un usuario por ID';
+    $user->delete();
+    return $user;
 });
